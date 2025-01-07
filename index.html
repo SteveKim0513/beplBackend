@@ -17,6 +17,7 @@
           const userID = urlParams.get("user");
 
           if (userID) {
+            console.log("User ID =", userID);
             // 웹훅 호출 코드
             fetch("https://hooks.zapier.com/hooks/catch/12976642/2z6pbn2/", {
               method: "POST",
