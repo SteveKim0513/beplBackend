@@ -10,16 +10,15 @@
     <h1>test</h1>
     <script src="https://cdn.nachocode.io/nachocode/client-sdk/@1.3.0/client-sdk.min.js"></script>
     <script>
-      // SDK 초기화 후 동작할 이벤트를 등록 합니다.
-      Nachocode.event.on("init", () => {
-        if (true) {
+      if (window.Nachocode) {
+        // SDK 초기화 후 동작할 이벤트를 등록 합니다.
+        Nachocode.event.on("init", async () => {
+          console.log("Nachocode initialized");
           const urlParams = new URLSearchParams(window.location.search);
           const userID = urlParams.get("user");
           console.log("userID = ", userID);
-          if (userID) Nachocode.push.registerPushToken(userID);
-        }
-      }); // SDK가 로드되었는지 확인한 후 초기화를 시도합니다.
-      if (window.Nachocode) {
+          if (userID) await Nachocode.push.registerPushToken(userID);
+        }); // SDK가 로드되었는지 확인한 후 초기화를 시도합니다.
         // nachocode SDK를 초기화 합니다.
         Nachocode.init("igkQXNBXXrNRGQjFXidO", { logger: true });
       } else {
