@@ -12,12 +12,16 @@
     <script>
       // SDK 초기화 후 동작할 이벤트를 등록 합니다.
       Nachocode.event.on("init", () => {
-        if (Nachocode.env.isApp() && Nachocode.device.isIOS()) {
-          const urlParams = new URLSearchParams(window.location.search);
-          const userID = urlParams.get("user");
-          console.log(userID);
-          if (userID) Nachocode.push.registerPushToken(userID);
-        }
+        const urlParams = new URLSearchParams(window.location.search);
+        const userID = urlParams.get("user");
+        console.log(userID);
+
+        // if (Nachocode.env.isApp() && Nachocode.device.isIOS()) {
+        //   const urlParams = new URLSearchParams(window.location.search);
+        //   const userID = urlParams.get("user");
+        //   console.log(userID);
+        //   if (userID) Nachocode.push.registerPushToken(userID);
+        // }
       });
 
       // SDK가 로드되었는지 확인한 후 초기화를 시도합니다.
