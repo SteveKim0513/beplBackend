@@ -16,7 +16,7 @@
           const urlParams = new URLSearchParams(window.location.search);
           const userID = urlParams.get("user");
           console.log(userID);
-          Nachocode.push.registerPushToken(userID);
+          if (userID) Nachocode.push.registerPushToken(userID);
         }
       });
 
